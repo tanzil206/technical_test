@@ -1,6 +1,3 @@
-RUN git clone git://github.com/samtools/samtools.git
-RUN cd technical_test
-
 FROM eclipse-temurin:17-jdk-focal
  
 WORKDIR /app
