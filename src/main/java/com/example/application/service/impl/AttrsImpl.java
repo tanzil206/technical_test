@@ -43,7 +43,7 @@ public class AttrsImpl implements IAttrsService {
 				searchAttrObject.put("key", attrsList.get(i).getAttrsKey());
 				for (int v = 0; v <attrsList.size(); v++) {
 					if (attrsList.get(v).getAttrsKey().equalsIgnoreCase(attrsList.get(i).getAttrsKey()))
-						searchAttrObject.put("value",attrsList.get(v).getValue());
+						searchAttrObject.put("values",attrsList.get(v).getValue());
 
 				}
 				searchAttr.put(searchAttrObject);

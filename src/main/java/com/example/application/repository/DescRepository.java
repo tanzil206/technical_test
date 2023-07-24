@@ -17,6 +17,6 @@ public interface DescRepository extends CrudRepository<Desc, Long> {
 
 	public Stream<Desc> findByProduct(Product product);
 
-	@Query(value = "select count(*)as num FROM description a WHERE a.value is null", nativeQuery = true)
+	@Query(value = "select count(*)as num FROM description a WHERE a.value is null or a.value ='[]'", nativeQuery = true)
 	public long findByValue();
 }

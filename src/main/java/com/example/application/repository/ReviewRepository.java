@@ -17,7 +17,7 @@ public interface ReviewRepository extends CrudRepository<Review, Long> {
 
 	public Stream<Review> findByProduct(Product product);
 
-	@Query(value = "select count(*)as num FROM review a WHERE a.value is null", nativeQuery = true)
+	@Query(value = "select count(*)as num FROM review a WHERE a.value is null or a.value ='[]'", nativeQuery = true)
 	public long findByValue();
 
 }
