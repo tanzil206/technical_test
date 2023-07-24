@@ -1,8 +1,5 @@
 package com.example.application.repository;
 
-import java.util.List;
-import java.util.stream.Stream;
-
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
