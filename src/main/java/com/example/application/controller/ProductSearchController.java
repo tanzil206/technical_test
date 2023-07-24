@@ -1,8 +1,11 @@
 package com.example.application.controller;
 
 
+import java.io.IOException;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
@@ -20,13 +23,11 @@ import com.example.application.service.IAttrsService;
 import com.example.application.service.IProductService;
 import com.example.application.utility.Keyword;
 import com.example.application.service.IFactoryService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 
-
+import com.example.application.utility.DataEntry;
 /**
  * Created by Tanzil.
  */
@@ -48,10 +49,9 @@ public class ProductSearchController {
 
 
 	@RequestMapping(method = RequestMethod.GET, value = "/products")
-	public JsonNode  productSearch(HttpServletRequest httpRequest, @RequestParam("jan") String jan) throws JsonMappingException, JsonProcessingException  {
+	public JsonNode  productSearch(HttpServletRequest httpRequest, @RequestParam("jan") String jan) throws IOException, ParseException  {
 
-
-
+		
 		JSONObject searchproduct = new JSONObject();
 
 		Product product = productService.getProductByJan(jan);

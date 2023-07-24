@@ -11,11 +11,9 @@ import com.example.application.model.Attrs;
 import com.example.application.model.Product;
 
 @Repository
-public interface AttrsRepository extends PagingAndSortingRepository<Attrs, Long> {
+public interface AttrsRepository extends CrudRepository<Attrs, Long> {
 
 	public Attrs findById(long id);
-
-	public Stream<Attrs> findAll();
 
 	public Stream<Attrs> findByProduct(Product product);
 

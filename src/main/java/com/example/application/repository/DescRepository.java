@@ -11,11 +11,9 @@ import com.example.application.model.Desc;
 import com.example.application.model.Product;
 
 @Repository
-public interface DescRepository extends PagingAndSortingRepository<Desc, Long> {
+public interface DescRepository extends CrudRepository<Desc, Long> {
 
 	public Desc findById(long id);
-
-	public Stream<Desc> findAll();
 
 	public Stream<Desc> findByProduct(Product product);
 

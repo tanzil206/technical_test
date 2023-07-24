@@ -1,7 +1,10 @@
 package com.example.application.controller;
 
 
+import java.io.IOException;
+
 import org.json.JSONObject;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,9 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.application.factory.ProductServiceFactory;
 import com.example.application.service.IAttrsService;
 import com.example.application.repository.*;
+import com.example.application.utility.DataEntry;
 import com.example.application.utility.Keyword;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,13 +30,23 @@ public class ProductReportController {
 	@Autowired
 	IAttrsService attrsService;
 	@Autowired
+	DescRepository descRepository;
+	@Autowired
+	ReviewRepository reviewRepository;
+	@Autowired
+	AttrsRepository attrsRepository;
+	@Autowired
 	ObjectMapper mapper;
 
 	@Autowired
 	ProductServiceFactory serviceFactory;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/reports")
-	public JsonNode productSearch(HttpServletRequest httpRequest) throws JsonMappingException, JsonProcessingException {
+	public JsonNode productSearch(HttpServletRequest httpRequest) throws IOException, ParseException {
+
+		
+		DataEntry dt = new DataEntry(productRepository,attrsRepository,descRepository,reviewRepository);
+    	dt.dataSave();
 
 		JSONObject searchproduct = new JSONObject();
 

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.example.application.model.Product;
 
 @Repository
-public interface ProductRepository extends PagingAndSortingRepository<Product, Long> {
+public interface ProductRepository extends CrudRepository<Product, Long> {
 
 	public Product findById(long id);
 

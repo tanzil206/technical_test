@@ -11,11 +11,9 @@ import com.example.application.model.Review;
 import com.example.application.model.Product;
 
 @Repository
-public interface ReviewRepository extends PagingAndSortingRepository<Review, Long> {
+public interface ReviewRepository extends CrudRepository<Review, Long> {
 
 	public Review findById(long id);
-
-	public Stream<Review> findAll();
 
 	public Stream<Review> findByProduct(Product product);
 
